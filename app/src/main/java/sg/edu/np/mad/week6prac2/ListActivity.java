@@ -21,7 +21,7 @@ public class ListActivity extends AppCompatActivity {
 
         DBHandler db = new DBHandler(this);
 
-        ArrayList<user> userlist = new ArrayList<>();
+        ArrayList<user> userList = new ArrayList<>();
         if (db.Count() == 0){
             for (int i = 0; i < 20; i++){
                 user newUser = createUser();
@@ -29,11 +29,11 @@ public class ListActivity extends AppCompatActivity {
             }
         }
 
-        userlist = db.getUsers();
+        userList = db.getUsers();
 
 
         RecyclerView recyclerView = findViewById(R.id.recycler);
-        adapter mAdapter = new adapter(ListActivity.this,userlist);
+        adapter mAdapter = new adapter(ListActivity.this,userList);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
